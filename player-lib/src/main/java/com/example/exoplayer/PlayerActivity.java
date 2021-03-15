@@ -33,6 +33,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
  * A fullscreen activity to play audio or video streams. 
+ aaaa
  */
 public class PlayerActivity extends AppCompatActivity {
 
