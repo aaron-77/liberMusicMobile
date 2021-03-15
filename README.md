@@ -1,2 +1,2 @@
-# LiberMusic
-Poryecto de reprodutor de música en streaming
+# LiberMusicMobile
+Poryecto de reprodutor de música en streaming movil
