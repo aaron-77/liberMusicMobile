@@ -9,42 +9,45 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/buscador"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="412dp"
+        android:layout_height="118dp"
         android:background="#2B54BC"
         app:hintTextColor="#151515"
+        app:layout_constraintBottom_toTopOf="@+id/layout_list_results"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.099">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/buscador_edit"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:background="@drawable/backgroud_primary"
             android:ellipsize="none"
             android:hint="@string/text_buscador_hint"
             android:textColor="#000000"
             android:textColorHint="#000000"
             android:textSize="24sp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:id="@+id/layout_list_results"
-        android:layout_width="414dp"
-        android:layout_height="724dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="410dp"
+        android:layout_height="545dp"
+        android:layout_marginBottom="40dp"
         android:background="#3F5AED"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buscador">
-
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
         <ListView
             android:id="@+id/list_results_search"
-            android:layout_width="match_parent"
+            android:layout_width="424dp"
             android:layout_height="match_parent"
             android:background="@drawable/backgroud_primary" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

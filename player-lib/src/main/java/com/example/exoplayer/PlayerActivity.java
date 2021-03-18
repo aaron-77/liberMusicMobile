@@ -16,18 +16,13 @@
 package com.example.exoplayer;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 //import androidx.navigation.NavController;
 
 import com.google.android.exoplayer2.MediaItem;
@@ -37,8 +32,6 @@ import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.ArrayList;
 
 /**
  * A fullscreen activity to play audio or video streams. 
@@ -56,7 +49,6 @@ public class PlayerActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_player);
     playerView = findViewById(R.id.video_view);
@@ -68,22 +60,17 @@ public class PlayerActivity extends AppCompatActivity {
         int menuPagina1= R.id.page_1;
         boolean isSelected= false;
         if (idMenuItemSeleccionado == R.id.page_1) {
-            System.out.println(isSelected);
           isSelected= true;
         } else if (idMenuItemSeleccionado == R.id.page_2) {
-            sendMessage();
-          
-        isSelected= true;
+          isSelected= true;
         }else{
-
+          abrirActivity();
           isSelected= true;
         }
         return isSelected;
       }
 
       });
-
-
   }
 
   @Override
@@ -161,12 +148,10 @@ public class PlayerActivity extends AppCompatActivity {
         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
   }
 
-    public void sendMessage() {
+    public void abrirActivity() {
         Intent intent = new Intent(this, BuscadorActivity.class);
         String message = "Bingo";
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
-
-
 }

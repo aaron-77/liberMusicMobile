@@ -26,7 +26,7 @@ public class AdaptadorListaBuscador extends BaseAdapter {
     }
     @Override
     public int getCount() {
-        return 41;
+        return 6;
     }
 
     @Override

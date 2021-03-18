@@ -62,51 +62,12 @@ public class BuscadorActivity extends AppCompatActivity {
     private void insertarLista(Context contexto) {
         ListView lista = (ListView) findViewById(R.id.list_results_search);
         ArrayList<String> contenido = new ArrayList<String>();
-        /*
-        contenido.add("Compañera");
-        contenido.add("usted sabe");
-        contenido.add("que puede contar");
-        contenido.add("conmigo");
-        contenido.add("no hasta dos");
-        contenido.add("o hasta diez");
-        contenido.add("sino contar");
-        contenido.add("conmigo");
-        contenido.add("si alguna vez");
-        contenido.add("advierte");
-        contenido.add("que la miro a los ojos");
-        contenido.add("y una veta de amor");
-        contenido.add("reconoce en los míos");
-        contenido.add("no alerte sus fusiles");
-        contenido.add("ni piense qué delirio");
-        contenido.add("a pesar de la veta");
-        contenido.add("o tal vez porque existe");
-        contenido.add("usted puede contar");
-        contenido.add("conmigo");
-        contenido.add("si otras veces");
-        contenido.add("me encuentra");
-        contenido.add("huraño sin motivo");
-        contenido.add("no piense qué flojera");
-        contenido.add("igual puede contar");
-        contenido.add("conmigo");
-        */
-        contenido.add("pero hagamos un trato");
-        contenido.add("yo quisiera contar");
-        contenido.add("con usted");
-        contenido.add("es tan lindo");
-        contenido.add("saber que usted existe");
-        contenido.add("uno se siente vivo");
-        contenido.add("y cuando digo esto");
-        contenido.add("quiero decir contar");
-        contenido.add("aunque sea hasta dos");
-        contenido.add("aunque sea hasta cinco");
-        contenido.add("no ya para que acuda");
-        contenido.add("presurosa en mi auxilio");
-        contenido.add("sino para saber");
-        contenido.add("a ciencia cierta");
-        contenido.add("que usted sabe que puede");
+        contenido.add("pero hagamos un trato yo quisiera contar con usted");
+        contenido.add("es tan lindo saber que usted existe uno se siente vivo");
+        contenido.add("y cuando digo esto quiero decir contar aunque sea hasta dos");
+        contenido.add("aunque sea hasta cinco no ya para que acuda presurosa en mi auxilio");
+        contenido.add(" sino para saber a ciencia cierta que usted sabe que puede");
         contenido.add("contar conmigo.");
-        //ArrayAdapter<String>adaptadorConContenido = new ArrayAdapter<String>(this,R.id.list_results_search,contenido);
-
         lista.setAdapter(new AdaptadorListaBuscador(contexto, R.id.layout_list_results, contenido));
     }
 }
