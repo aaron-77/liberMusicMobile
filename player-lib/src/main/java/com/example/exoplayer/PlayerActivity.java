@@ -16,12 +16,19 @@
 package com.example.exoplayer;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+//import androidx.navigation.NavController;
 
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.SimpleExoPlayer;
@@ -30,6 +37,8 @@ import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
 
 /**
  * A fullscreen activity to play audio or video streams. 
@@ -43,6 +52,7 @@ public class PlayerActivity extends AppCompatActivity {
   private int currentWindow = 0;
   private long playbackPosition = 0;
   private BottomNavigationView barraDeNavegacion;
+  public static final String EXTRA_MESSAGE = "el nombre mas poderoso";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +71,8 @@ public class PlayerActivity extends AppCompatActivity {
             System.out.println(isSelected);
           isSelected= true;
         } else if (idMenuItemSeleccionado == R.id.page_2) {
-
+            sendMessage();
+          
         isSelected= true;
         }else{
 
@@ -71,6 +82,7 @@ public class PlayerActivity extends AppCompatActivity {
       }
 
       });
+
 
   }
 
@@ -148,4 +160,13 @@ public class PlayerActivity extends AppCompatActivity {
         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
   }
+
+    public void sendMessage() {
+        Intent intent = new Intent(this, BuscadorActivity.class);
+        String message = "Bingo";
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+    }
+
+
 }

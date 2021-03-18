@@ -57,4 +57,15 @@ limitations under the License. -->
 
   </LinearLayout>
 
+  <!--
+  <fragment
+      android:id="@+id/fragment"
+      android:name="androidx.navigation.fragment.NavHostFragment"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:defaultNavHost="true"
+      app:navGraph="@navigation/nav_graph"
+      tools:layout_editor_absoluteX="271dp"
+      tools:layout_editor_absoluteY="557dp" />
+-->
 </androidx.constraintlayout.widget.ConstraintLayout>
