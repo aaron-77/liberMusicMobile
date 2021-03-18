@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3F51B5"
+    android:background="@drawable/backgroud_primary"
     tools:context=".LoginActivity">
 
 
@@ -13,8 +13,10 @@
         android:layout_width="256dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="290dp"
+        android:background="#3F5AED"
         android:gravity="center_vertical"
-        app:boxStrokeColor="#040404"
+        app:boxBackgroundColor="#3F5AED"
+        app:boxStrokeColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,8 +26,10 @@
             android:id="@+id/user_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/backgroud_primary"
             android:hint="@string/user_hint"
-            android:textColor="#020202" />
+            android:textColor="#000000"
+            android:textColorLink="#000000" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -33,6 +37,7 @@
         android:layout_width="256dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="390dp"
+        android:background="@drawable/backgroud_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/user"
         app:layout_constraintStart_toStartOf="@+id/user"
@@ -42,7 +47,11 @@
             android:id="@+id/password_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/backgroud_primary"
             android:hint="@string/password_hint"
+            android:textColorHighlight="#000000"
+            android:textColorHint="#FFFFFF"
+            android:textColorLink="#000000"
             tools:layout_editor_absoluteX="70dp"
             tools:layout_editor_absoluteY="224dp" />
 
@@ -55,6 +64,8 @@
         android:layout_marginBottom="50dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/title_login"
+        android:textColorHighlight="#000000"
+        android:textColorLink="#000000"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/user"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,13 +80,13 @@
         android:background="#2B54BC"
         android:shadowColor="#673AB7"
         android:text="@string/text_button_login"
-        app:backgroundTint="#644C8E"
+        app:backgroundTint="#070707"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
         app:rippleColor="#673AB7"
-        app:strokeColor="#673AB7" />
+        app:strokeColor="#020202" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

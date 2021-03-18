@@ -62,6 +62,7 @@ public class BuscadorActivity extends AppCompatActivity {
     private void insertarLista(Context contexto) {
         ListView lista = (ListView) findViewById(R.id.list_results_search);
         ArrayList<String> contenido = new ArrayList<String>();
+        /*
         contenido.add("Compañera");
         contenido.add("usted sabe");
         contenido.add("que puede contar");
@@ -87,6 +88,7 @@ public class BuscadorActivity extends AppCompatActivity {
         contenido.add("no piense qué flojera");
         contenido.add("igual puede contar");
         contenido.add("conmigo");
+        */
         contenido.add("pero hagamos un trato");
         contenido.add("yo quisiera contar");
         contenido.add("con usted");

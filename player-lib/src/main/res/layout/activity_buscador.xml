@@ -11,8 +11,7 @@
         android:id="@+id/buscador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/text_buscador_hint"
-        app:boxBackgroundColor="#070707"
+        android:background="#2B54BC"
         app:hintTextColor="#151515"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,15 +20,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/buscador_edit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#515151"
+            android:layout_height="30dp"
+            android:background="@drawable/backgroud_primary"
             android:ellipsize="none"
-            android:fontFamily="serif"
             android:hint="@string/text_buscador_hint"
             android:textColor="#000000"
             android:textColorHint="#000000"
-            android:textSize="24sp"
-            tools:text="buscar..." />
+            android:textSize="24sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
@@ -47,6 +44,7 @@
         <ListView
             android:id="@+id/list_results_search"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@drawable/backgroud_primary" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
