@@ -5,7 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +24,16 @@ public class AdaptadorListaBuscador extends BaseAdapter {
         this.contexto = contexto;
     }
 
+
     public AdaptadorListaBuscador(Context contexto, int idLista , ArrayList<String> contenido){
         this.contexto = contexto;
         this.idLista = idLista;
         this.contenido = contenido;
+
     }
     @Override
     public int getCount() {
-        return 6;
+        return 3;
     }
 
     @Override
@@ -47,11 +54,18 @@ public class AdaptadorListaBuscador extends BaseAdapter {
         LayoutInflater layoutInflater = LayoutInflater.from(this.contexto);
         listaConDatos= layoutInflater.inflate(R.layout.layout_lista_resultados_busqueda, null);
         // Valor actual según la posición
-        String currentName  = this.contenido.get(position);
+        String texto  = this.contenido.get(position);
         // Referenciamos el elemento a modificar y lo rellenamos
         TextView textView = (TextView) listaConDatos.findViewById(R.id.texto_resultado);
-        textView.setText(currentName);
-        //Devolvemos la vista inflada
+        textView.setText(texto);
+        ImageView imagen = (ImageView) listaConDatos.findViewById(R.id.imagen);
+        String url ="https://github.com/aaron-77/LiberMusicMobile/blob/main/imageramas.png";
+        RequestOptions requestOptions = new RequestOptions().override(200,200);
+            Glide.with(contexto)
+                .load(url)
+                .apply(requestOptions)
+                .into(imagen);
+
         return listaConDatos;
     }
 }

@@ -62,12 +62,9 @@ public class BuscadorActivity extends AppCompatActivity {
     private void insertarLista(Context contexto) {
         ListView lista = (ListView) findViewById(R.id.list_results_search);
         ArrayList<String> contenido = new ArrayList<String>();
-        contenido.add("pero hagamos un trato yo quisiera contar con usted");
-        contenido.add("es tan lindo saber que usted existe uno se siente vivo");
-        contenido.add("y cuando digo esto quiero decir contar aunque sea hasta dos");
-        contenido.add("aunque sea hasta cinco no ya para que acuda presurosa en mi auxilio");
-        contenido.add(" sino para saber a ciencia cierta que usted sabe que puede");
-        contenido.add("contar conmigo.");
+        contenido.add("El destino ");
+        contenido.add("es el que baraja las cartas");
+        contenido.add("pero nosotros las que las jugamos");
         lista.setAdapter(new AdaptadorListaBuscador(contexto, R.id.layout_list_results, contenido));
     }
 }
