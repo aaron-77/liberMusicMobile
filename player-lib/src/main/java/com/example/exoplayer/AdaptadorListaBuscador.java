@@ -12,6 +12,10 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,13 +23,13 @@ public class AdaptadorListaBuscador extends BaseAdapter {
 
     private Context contexto;
     private int idLista;
-    private ArrayList<String> contenido;
+    private JSONObject contenido;
     public AdaptadorListaBuscador(Context contexto){
         this.contexto = contexto;
     }
 
 
-    public AdaptadorListaBuscador(Context contexto, int idLista , ArrayList<String> contenido){
+    public AdaptadorListaBuscador(Context contexto, int idLista , JSONObject contenido){
         this.contexto = contexto;
         this.idLista = idLista;
         this.contenido = contenido;
@@ -33,7 +37,14 @@ public class AdaptadorListaBuscador extends BaseAdapter {
     }
     @Override
     public int getCount() {
-        return 3;
+        int elementos = 0;
+        try {
+            elementos = ((JSONObject) contenido.get("data"))
+                    .getJSONArray("results").length();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return elementos;
     }
 
     @Override
@@ -54,15 +65,39 @@ public class AdaptadorListaBuscador extends BaseAdapter {
         LayoutInflater layoutInflater = LayoutInflater.from(this.contexto);
         listaConDatos= layoutInflater.inflate(R.layout.layout_lista_resultados_busqueda, null);
         // Valor actual según la posición
-        String texto  = this.contenido.get(position);
         // Referenciamos el elemento a modificar y lo rellenamos
         TextView textView = (TextView) listaConDatos.findViewById(R.id.texto_resultado);
-        textView.setText(texto);
+        TextView descripcionHeroe = (TextView) listaConDatos.findViewById(R.id.texto_descripcion);
+        TextView textoCopyRight = (TextView) listaConDatos.findViewById(R.id.texto_copyright);
         ImageView imagen = (ImageView) listaConDatos.findViewById(R.id.imagen);
-        String url ="https://github.com/aaron-77/LiberMusicMobile/blob/main/imageramas.png";
+        String datosCopyRight = "";
+        JSONObject datosDelSuperHeroe = null;
+        String nombre = "";
+        String descripcion = "";
+        String rutaImagen = "";
+        try {
+            datosCopyRight =  contenido.getString("attributionText");
+            datosDelSuperHeroe = ((JSONObject) contenido.get("data"))
+                    .getJSONArray("results")
+                    .getJSONObject(0);
+
+            nombre = datosDelSuperHeroe.getString("name");
+            descripcion = datosDelSuperHeroe.getString("description");
+            rutaImagen = ((JSONObject)datosDelSuperHeroe.get("thumbnail"))
+                    .getString("path")
+                    +"."
+                    +((JSONObject)datosDelSuperHeroe.get("thumbnail"))
+                    .getString("extension");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        textView.setText(nombre);
+        textoCopyRight.setText(datosCopyRight);
+        descripcionHeroe.setText(descripcion);
+        //String url ="https://github.com/aaron-77/LiberMusicMobile/blob/main/imageramas.png";
         RequestOptions requestOptions = new RequestOptions().override(200,200);
             Glide.with(contexto)
-                .load(url)
+                .load(rutaImagen)
                 .apply(requestOptions)
                 .into(imagen);
 
