@@ -3,9 +3,7 @@
 
 name: IntegracionContinuaPrueba
 
-on:
-  pull_request:
-    branches: [ desarrollo, pruebaCI ]
+on: pull_request
 
 jobs:
   build:
