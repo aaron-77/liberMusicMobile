@@ -27,6 +27,7 @@ public class UsuarioRequest<Usuario> extends Request<Usuario> {
      */
     public UsuarioRequest(String url, Class<Usuario> clazz, Map<String, String> headers,
                        Response.Listener<Usuario> listener, Response.ErrorListener errorListener) {
+
         super(Request.Method.GET, url, errorListener);
         this.clazz = clazz;
         this.headers = headers;
