@@ -10,11 +10,12 @@ import org.json.JSONObject;
 
 public class RequestManager {
 
-    public static UsuarioRequest crearUserRequest(String url){
+    /**
+    public static UsuarioRequest crearUserRequest(String url) {
 
         final Usuario usuarioResponse;
         UsuarioRequest<Usuario> request = new UsuarioRequest
-                (url, Usuario.class, Map<String, String> headers, new Response.Listener<JSONObject>() {
+                (url, Usuario.class, Map<String,String > headers, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
@@ -24,9 +25,10 @@ public class RequestManager {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        VolleyError  errorsote= error;
+                        VolleyError errorsote = error;
                     }
                 });
+        return null;
     }
-
+      **/
 }
