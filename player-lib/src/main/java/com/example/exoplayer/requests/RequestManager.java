@@ -8,27 +8,30 @@ import com.example.exoplayer.Usuario;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
 public class RequestManager {
 
-    /**
-    public static UsuarioRequest crearUserRequest(String url) {
 
-        final Usuario usuarioResponse;
-        UsuarioRequest<Usuario> request = new UsuarioRequest
-                (url, Usuario.class, Map<String,String > headers, new Response.Listener<JSONObject>() {
+    public static UsuarioRequest<Usuario> crearUserRequest(String url,Response.Listener<Usuario> responseListener,Response.ErrorListener errorListener) {
 
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        usuarioResponse = response;
-                    }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        VolleyError errorsote = error;
-                    }
-                });
-        return null;
+       HashMap<String,String> headers = RequestManager.crearHeaders();
+       UsuarioRequest<Usuario> request = new UsuarioRequest(url, Usuario.class, headers, responseListener, errorListener);
+        return request;
     }
-      **/
+    private static HashMap<String,String>crearHeaders(){
+
+        HashMap<String, String> headers = new HashMap<>();
+        headers.put("Content-Type","application/json");
+        headers.put("Content-Length","");
+        headers.put("Host","");
+        headers.put("Accept","*/*");
+        headers.put("Accept-Encoding","gzip,deflate,br");
+        headers.put("Connection","keep-alive");
+        return headers;
+    }
+
+
 }
