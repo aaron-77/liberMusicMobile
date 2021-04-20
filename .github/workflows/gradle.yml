@@ -57,17 +57,11 @@ jobs:
       - name: Run tests
         run: ./gradlew test
       - name: Upload test report
-        uses: actions/upload-artifact@v2
-        with:
-          name: unit_test_report
-          path: app/build/reports/test-results.html      
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
+  upload-report:
+    needs: [unit-test]
+    runs-on: ubuntu-latest
+    steps: 
+       - name: upload test report
+         uses: actions/upload-artifact@v2
+         with:
+          path: app/build/reports/test-results.html
