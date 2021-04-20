@@ -36,7 +36,7 @@ public class TestValidator {
     }
     @Test
     public void validarDatoNumericoIncorrecto(){
-        int numero = -1999;
+        int numero = 1999;
         boolean resultadoValidacion = Validator.validarValorNumericoEntero(numero);
         assertFalse(resultadoValidacion);
     }
