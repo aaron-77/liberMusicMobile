@@ -7,7 +7,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.example.exoplayer.LoginActivity;
-import com.example.exoplayer.Usuario;
+import com.example.exoplayer.models.Usuario;
 import com.example.exoplayer.requests.RequestManager;
 import com.example.exoplayer.requests.UsuarioRequest;
 

@@ -1,21 +1,14 @@
 package com.example.exoplayer.requests;
 
-import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.exoplayer.Usuario;
-
-import org.json.JSONObject;
+import com.example.exoplayer.models.Usuario;
 
 import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 public class RequestManager {
 
 
-    public static UsuarioRequest<Usuario> crearUserRequest(String url,Response.Listener<Usuario> responseListener,Response.ErrorListener errorListener) {
+    public static UsuarioRequest<Usuario> crearUserRequest(String url, Response.Listener<Usuario> responseListener, Response.ErrorListener errorListener) {
 
        HashMap<String,String> headers = RequestManager.crearHeaders();
        UsuarioRequest<Usuario> request = new UsuarioRequest(url, Usuario.class, headers, responseListener, errorListener);
