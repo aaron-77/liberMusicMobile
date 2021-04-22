@@ -10,7 +10,7 @@ import com.example.exoplayer.utilities.Validator;
 
 import org.junit.Test;
 
-import java.io.File;
+
 import java.lang.ref.ReferenceQueue;
 
 import static org.junit.Assert.*;

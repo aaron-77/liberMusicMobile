@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroud_primary"
+    android:theme="@style/LoginTheme"
     tools:context=".LoginActivity">
 
 
@@ -12,7 +13,7 @@
         android:id="@+id/user"
         android:layout_width="256dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="290dp"
+        android:layout_marginBottom="390dp"
         android:background="#3F5AED"
         android:gravity="center_vertical"
         app:boxBackgroundColor="#3F5AED"
@@ -80,11 +81,12 @@
         android:background="#2B54BC"
         android:shadowColor="#673AB7"
         android:text="@string/text_button_login"
-        app:backgroundTint="#070707"
+        app:backgroundTint="#2B54BC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="1.0"
         app:rippleColor="#673AB7"
         app:strokeColor="#020202" />
 
