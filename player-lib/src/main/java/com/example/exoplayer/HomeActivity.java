@@ -2,7 +2,10 @@ package com.example.exoplayer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.exoplayer.models.Cancion;
@@ -16,6 +19,7 @@ public class HomeActivity extends AppCompatActivity {
     AdaptadorListaBuscador adaptadorListaExplorarCanciones;
     ManagerRequest.QueueObject queque = null;
     ArrayList<Cancion> items;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +30,14 @@ public class HomeActivity extends AppCompatActivity {
         Cancion.explorarCanciones(queque,items,this);
         adaptadorListaExplorarCanciones = new AdaptadorListaBuscador(this, R.id.layout_list_results, items);
         lista.setAdapter(adaptadorListaExplorarCanciones);
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent playerActivity = new Intent(HomeActivity.this,PlayerActivity.class);
+                playerActivity.putExtra("cancion",items.get(position));
+                startActivity(playerActivity);
+            }
+        });
 
     }
     public void refreshList() {

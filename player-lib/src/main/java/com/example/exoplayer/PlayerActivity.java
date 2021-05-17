@@ -28,6 +28,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.exoplayer.models.Cancion;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
@@ -51,6 +52,7 @@ public class PlayerActivity extends AppCompatActivity {
   private long playbackPosition = 0;
   private BottomNavigationView barraDeNavegacion;
   public static final String EXTRA_MESSAGE = "el nombre mas poderoso";
+  private Cancion cancionParaReproducir;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +60,9 @@ public class PlayerActivity extends AppCompatActivity {
     setContentView(R.layout.activity_player);
     playerView = findViewById(R.id.video_view);
     barraDeNavegacion = findViewById(R.id.bottom_navigation);
+    cancionParaReproducir = (Cancion) getIntent().getSerializableExtra("cancion");
     barraDeNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
       @Override
       public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int idMenuItemSeleccionado=menuItem.getItemId();
@@ -123,7 +127,7 @@ public class PlayerActivity extends AppCompatActivity {
 
     playerView.setPlayer(player);
     MediaItem mediaItem = new MediaItem.Builder()
-            .setUri(getString(R.string.media_url_dash))
+            .setUri(cancionParaReproducir.getUrlDeCancion())
             .setMimeType(MimeTypes.APPLICATION_MPD)
             .build();
     player.setMediaItem(mediaItem);

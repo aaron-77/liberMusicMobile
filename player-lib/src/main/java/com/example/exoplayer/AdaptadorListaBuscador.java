@@ -1,6 +1,7 @@
 package com.example.exoplayer;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,6 +71,11 @@ public class AdaptadorListaBuscador extends BaseAdapter {
         textNombreCancion.setText(tituloCancion);
         textDuracion.setText(duracion);
         textNumeroDeTrack.setText(numeroDeTrack);
+
+            imagen.setImageResource(R.drawable.imagesandwords);
+
+
+
         //String url ="https://github.com/aaron-77/LiberMusicMobile/blob/main/imageramas.png";
         /*
         RequestOptions requestOptions = new RequestOptions().override(200,200);

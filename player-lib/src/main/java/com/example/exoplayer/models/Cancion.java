@@ -11,9 +11,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cancion {
+public class Cancion implements Serializable {
 
     private String idCancion;
     private String fkIdAlbum;
@@ -25,6 +26,9 @@ public class Cancion {
     private int duracion;
     private int numeroDeTrack;
     private String urlDeCancion;
+
+    public Cancion() {
+    }
 
     public Cancion(String idCancion, String tituloCancion, int duracion, int numeroDeTrack) {
         this.idCancion = idCancion;
@@ -161,11 +165,16 @@ public class Cancion {
                                 JSONArray list = response.getJSONArray("datos");
                                 for (int i=0; i < list.length(); i++) {
                                     JSONObject o = list.getJSONObject(i);
-                                    canciones.add(new Cancion(o.getString("id"),
-                                            o.getString("titulo"),
-                                            o.getInt("duracion"),
-                                            o.getInt("numeroDeTrack")
-                                            ));
+
+                                    Cancion cancion = new Cancion();
+                                    cancion.setTituloCancion(o.getString("id"));
+                                    cancion.setTituloCancion(o.getString("titulo"));
+                                    cancion.setDuracion(o.getInt("duracion"));
+                                    cancion.setNumeroDeTrack(o.getInt("numeroDeTrack"));
+                                    if(o.getString("titulo").equals("the killing hand")){
+                                            cancion.urlDeCancion = "http://192.168.100.2:4002/streaming/artistas/dreamtheater/whendreamanddayunite/dash/index.mpd";
+                                    }
+                                    canciones.add(cancion);
                                 }
 
                             } catch (JSONException e) {
