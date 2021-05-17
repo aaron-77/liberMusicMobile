@@ -1,5 +1,7 @@
 package com.example.exoplayer.controllers;
 
+import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 
 import com.android.volley.RequestQueue;
@@ -11,6 +13,9 @@ import com.example.exoplayer.models.Usuario;
 import com.example.exoplayer.requests.RequestManager;
 import com.example.exoplayer.requests.UsuarioRequest;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class LoginController {
 
     public LoginController(){
@@ -18,25 +23,21 @@ public class LoginController {
 
     }
 
-    public Usuario[] login(String usuario, String contrasena){
-        String url = "http://192.168.100.17:8090/suscripcion/Login";
-        final Usuario[] usuarioLogeado = new Usuario[1];
-        Response.Listener<Usuario> responseListener = new Response.Listener<Usuario>(){
-            @Override
-            public void onResponse(Usuario response) {
-                usuarioLogeado[0] = response;
-            }
-        };
+    public Usuario[] login(String usuario, String contrasena, Context contexto){
+        URL urltype ;
+        Uri urlBuilt;
+        String urlBase = "http://192.168.100.2:8090/suscripcion/login";
+        urlBuilt = Uri.parse(urlBase+"?").buildUpon()
+                .appendQueryParameter("nombreDeUsuario",usuario)
+                .appendQueryParameter("contrasena",contrasena)
+                .build();
+        try {
+            urltype = new URL(urlBuilt.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 
-        Response.ErrorListener errorListener = new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("error", "Fallo la peticion");
-            }
-        };
-        RequestQueue queue = Volley.newRequestQueue(new LoginActivity());
-        UsuarioRequest<Usuario> request = RequestManager.crearUserRequest(url,responseListener,errorListener);
-        queue.add(request);
-        return usuarioLogeado;
+        RequestManager.crearUserRequest(urlBuilt.toString(),contexto);
+        return new Usuario[1];
     }
 }

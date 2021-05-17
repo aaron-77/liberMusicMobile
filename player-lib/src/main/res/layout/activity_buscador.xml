@@ -48,6 +48,5 @@
             android:layout_width="424dp"
             android:layout_height="match_parent"
             android:background="@drawable/backgroud_primary" />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

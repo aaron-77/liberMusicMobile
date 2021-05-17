@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.exoplayer.models.Cancion;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,28 +24,20 @@ public class AdaptadorListaBuscador extends BaseAdapter {
 
     private Context contexto;
     private int idLista;
-    private JSONObject contenido;
+    private ArrayList<Cancion> contenido;
     public AdaptadorListaBuscador(Context contexto){
         this.contexto = contexto;
     }
 
 
-    public AdaptadorListaBuscador(Context contexto, int idLista , JSONObject contenido){
+    public AdaptadorListaBuscador(Context contexto, int idLista , ArrayList<Cancion> contenido){
         this.contexto = contexto;
         this.idLista = idLista;
         this.contenido = contenido;
-
     }
     @Override
     public int getCount() {
-        int elementos = 0;
-        try {
-            elementos = ((JSONObject) contenido.get("data"))
-                    .getJSONArray("results").length();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return elementos;
+        return contenido.size();
     }
 
     @Override
@@ -66,41 +59,25 @@ public class AdaptadorListaBuscador extends BaseAdapter {
         listaConDatos= layoutInflater.inflate(R.layout.layout_lista_resultados_busqueda, null);
         // Valor actual según la posición
         // Referenciamos el elemento a modificar y lo rellenamos
-        TextView textView = (TextView) listaConDatos.findViewById(R.id.texto_resultado);
-        TextView descripcionHeroe = (TextView) listaConDatos.findViewById(R.id.texto_descripcion);
-        TextView textoCopyRight = (TextView) listaConDatos.findViewById(R.id.texto_copyright);
+        TextView textNombreCancion = (TextView) listaConDatos.findViewById(R.id.texto_nombre_cancion);
+        TextView textDuracion = (TextView) listaConDatos.findViewById(R.id.texto_nombre_album);
+        TextView textNumeroDeTrack = (TextView) listaConDatos.findViewById(R.id.texto_nombre_artista);
         ImageView imagen = (ImageView) listaConDatos.findViewById(R.id.imagen);
-        String datosCopyRight = "";
-        JSONObject datosDelSuperHeroe = null;
-        String nombre = "";
-        String descripcion = "";
-        String rutaImagen = "";
-        try {
-            datosCopyRight =  contenido.getString("attributionText");
-            datosDelSuperHeroe = ((JSONObject) contenido.get("data"))
-                    .getJSONArray("results")
-                    .getJSONObject(0);
-
-            nombre = datosDelSuperHeroe.getString("name");
-            descripcion = datosDelSuperHeroe.getString("description");
-            rutaImagen = ((JSONObject)datosDelSuperHeroe.get("thumbnail"))
-                    .getString("path")
-                    +"."
-                    +((JSONObject)datosDelSuperHeroe.get("thumbnail"))
-                    .getString("extension");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        textView.setText(nombre);
-        textoCopyRight.setText(datosCopyRight);
-        descripcionHeroe.setText(descripcion);
+        String tituloCancion = contenido.get(position).getTituloCancion();
+        String duracion = String.valueOf(contenido.get(position).getDuracion()/60);
+        String numeroDeTrack =String.valueOf( contenido.get(position).getNumeroDeTrack());
+        String rutaImagen = contenido.get(position).getUrlPortada();
+        textNombreCancion.setText(tituloCancion);
+        textDuracion.setText(duracion);
+        textNumeroDeTrack.setText(numeroDeTrack);
         //String url ="https://github.com/aaron-77/LiberMusicMobile/blob/main/imageramas.png";
+        /*
         RequestOptions requestOptions = new RequestOptions().override(200,200);
             Glide.with(contexto)
                 .load(rutaImagen)
                 .apply(requestOptions)
                 .into(imagen);
-
+        */
         return listaConDatos;
     }
 }

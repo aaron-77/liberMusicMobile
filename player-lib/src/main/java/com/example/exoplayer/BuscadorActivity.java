@@ -55,28 +55,10 @@ public class BuscadorActivity extends AppCompatActivity {
         textView.setText(message);
         //insertarLista(this);
         crearPeticion();
-
-        /*
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
-
-         */
-    }
-/*
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_buscador, container, false);
     }
 
- */
 
-    private void insertarLista(Context contexto,JSONObject respuesta) {
+    private void insertarLista(Context contexto,ArrayList respuesta) {
         ListView lista = (ListView) findViewById(R.id.list_results_search);
         lista.setAdapter(new AdaptadorListaBuscador(contexto, R.id.layout_list_results, respuesta));
     }
@@ -105,7 +87,7 @@ public class BuscadorActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                            insertarLista(contexto,response);
+                            insertarLista(contexto,new ArrayList());
                     }
                 }, new Response.ErrorListener() {
 
@@ -115,7 +97,7 @@ public class BuscadorActivity extends AppCompatActivity {
                     }
                 });
 
-// Access the RequestQueue through your singleton class.
+
         queue.add(jsonObjectRequest);
     }
 }
