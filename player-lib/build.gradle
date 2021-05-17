@@ -18,6 +18,7 @@ android {
         testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+
     }
     repositories{
         maven {
