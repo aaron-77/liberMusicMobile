@@ -28,10 +28,17 @@ limitations under the License. -->
     <string name="text_icon_reproductor">reproductor</string>
     <string name="text_icon_playlists">playlists</string>
     <string name="text_icon_search">search</string>
+    <string name="text_icon_account">search</string>
     <string name="text_icon_home">home</string>
     <string name="text_titulo_home">explorar canciones</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="page_title">home</string>
+    <string name="account_menu_option">cuenta</string>
+    <string name="content_description_account">administracion de tu cuenta</string>
+    <string name="texto_item_administrar_contenido">administracion de tu cuenta</string>
+    <string name="texto_item_cerrar_sesion">cerrar sesion</string>
+
 
 
 </resources>

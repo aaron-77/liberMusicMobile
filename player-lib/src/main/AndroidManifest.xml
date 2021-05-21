@@ -13,11 +13,12 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".CuentaActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            ></activity>
+        <activity
             android:name=".HomeActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-
-        </activity>
-
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
 
         <uses-library
             android:name="android.test.runner"
@@ -28,7 +29,8 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/LoginTheme">
+            android:theme="@style/LoginTheme"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

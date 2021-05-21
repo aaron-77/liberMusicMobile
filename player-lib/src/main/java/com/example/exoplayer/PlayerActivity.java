@@ -18,8 +18,10 @@ package com.example.exoplayer;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,8 +30,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.exoplayer.controllers.ListasDeReproduccionController;
 import com.example.exoplayer.models.Cancion;
 import com.google.android.exoplayer2.MediaItem;
+import com.google.android.exoplayer2.MediaMetadata;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
@@ -38,6 +42,8 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * A fullscreen activity to play audio or video streams. 
@@ -52,29 +58,41 @@ public class PlayerActivity extends AppCompatActivity {
   private long playbackPosition = 0;
   private BottomNavigationView barraDeNavegacion;
   public static final String EXTRA_MESSAGE = "el nombre mas poderoso";
-  private Cancion cancionParaReproducir;
+  private ArrayList<Cancion> cancionesParaPlayList;
+  public ArrayList<MediaItem> listaDeReproduccion;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_player);
+    listaDeReproduccion = new ArrayList<MediaItem>();
     playerView = findViewById(R.id.video_view);
+    playerView.setUseArtwork(true);
+    ImageView artWork = (ImageView)findViewById(R.id.exo_artwork);
+    artWork.setImageResource(R.drawable.amarteesunplacer);
     barraDeNavegacion = findViewById(R.id.bottom_navigation);
-    cancionParaReproducir = (Cancion) getIntent().getSerializableExtra("cancion");
+    cancionesParaPlayList = (ArrayList<Cancion>) getIntent().getSerializableExtra("cancionesLista");
+    barraDeNavegacion.setSelectedItemId(R.id.page_2);
     barraDeNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
       @Override
       public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int idMenuItemSeleccionado=menuItem.getItemId();
-        int menuPagina1= R.id.page_1;
+
         boolean isSelected= false;
         if (idMenuItemSeleccionado == R.id.page_1) {
+          abrirActivity(HomeActivity.class);
           isSelected= true;
         } else if (idMenuItemSeleccionado == R.id.page_2) {
+          abrirActivity(PlayerActivity.class);
           isSelected= true;
-        }else{
-          abrirActivity();
+        }else if(idMenuItemSeleccionado == R.id.page_3){
+          //llamar activity listas de reproduccion
           isSelected= true;
+        }else if(idMenuItemSeleccionado == R.id.page_4){
+          //llamar activity buscador
+        }else if (idMenuItemSeleccionado == R.id.page_5){
+          //llamar activity cuenta
         }
         return isSelected;
       }
@@ -86,7 +104,10 @@ public class PlayerActivity extends AppCompatActivity {
   public void onStart() {
     super.onStart();
     if (Util.SDK_INT > 23) {
-      initializePlayer();
+      if(cancionesParaPlayList != null){
+        initializePlayer();
+      }
+
     }
   }
 
@@ -95,7 +116,7 @@ public class PlayerActivity extends AppCompatActivity {
     super.onResume();
     hideSystemUi();
     if ((Util.SDK_INT <= 23 || player == null)) {
-      initializePlayer();
+        initializePlayer();
     }
   }
 
@@ -126,15 +147,24 @@ public class PlayerActivity extends AppCompatActivity {
     }
 
     playerView.setPlayer(player);
-    MediaItem mediaItem = new MediaItem.Builder()
-            .setUri(cancionParaReproducir.getUrlDeCancion())
-            .setMimeType(MimeTypes.APPLICATION_MPD)
-            .build();
-    player.setMediaItem(mediaItem);
+    if(cancionesParaPlayList != null){
+         listaDeReproduccion =ListasDeReproduccionController.crearListaDeReproduccion(cancionesParaPlayList,listaDeReproduccion);
+      /*
+      MediaItem mediaItem = new MediaItem.Builder()
+              .setUri(cancionParaReproducir.getUrlDeCancion())
+              .setMimeType(MimeTypes.APPLICATION_MPD)
+              .build();
 
-    player.setPlayWhenReady(playWhenReady);
-    player.seekTo(currentWindow, playbackPosition);
-    player.prepare();
+       */
+      for(MediaItem mediaItem : listaDeReproduccion){
+        player.addMediaItem(mediaItem);
+      }
+      player.setPlayWhenReady(playWhenReady);
+      player.seekTo(currentWindow, playbackPosition);
+      player.prepare();
+    }
+
+
   }
 
   private void releasePlayer() {
@@ -157,11 +187,12 @@ public class PlayerActivity extends AppCompatActivity {
         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
   }
 
-    public void abrirActivity() {
-        Intent intent = new Intent(this, BuscadorActivity.class);
-        String message = "Bingo";
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+    private void abrirActivity(Class activityParaAbrir) {
+
+      Intent intent = new Intent(this, activityParaAbrir);
+      String message = "Bingo";
+      intent.putExtra(EXTRA_MESSAGE, message);
+      startActivity(intent);
     }
 
 
