@@ -57,7 +57,8 @@ public class PlayerActivity extends AppCompatActivity {
   private int currentWindow = 0;
   private long playbackPosition = 0;
   private BottomNavigationView barraDeNavegacion;
-  public static final String EXTRA_MESSAGE = "el nombre mas poderoso";
+  //public static final String EXTRA_MESSAGE = "el nombre mas poderoso";
+    public static final String EXTRA_MESSAGE = "lista";
   private ArrayList<Cancion> cancionesParaPlayList;
   public ArrayList<MediaItem> listaDeReproduccion;
 
@@ -65,6 +66,7 @@ public class PlayerActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_player);
+
     listaDeReproduccion = new ArrayList<MediaItem>();
     playerView = findViewById(R.id.video_view);
     playerView.setUseArtwork(true);
@@ -87,8 +89,8 @@ public class PlayerActivity extends AppCompatActivity {
           abrirActivity(PlayerActivity.class);
           isSelected= true;
         }else if(idMenuItemSeleccionado == R.id.page_3){
-          //llamar activity listas de reproduccion
-          isSelected= true;
+            abrirActivity(PlaylistActivity.class);
+            isSelected= true;
         }else if(idMenuItemSeleccionado == R.id.page_4){
           //llamar activity buscador
         }else if (idMenuItemSeleccionado == R.id.page_5){
@@ -190,8 +192,8 @@ public class PlayerActivity extends AppCompatActivity {
     private void abrirActivity(Class activityParaAbrir) {
 
       Intent intent = new Intent(this, activityParaAbrir);
-      String message = "Bingo";
-      intent.putExtra(EXTRA_MESSAGE, message);
+      //String message = "Bingo";
+      intent.putExtra(EXTRA_MESSAGE, listaDeReproduccion);
       startActivity(intent);
     }
 
