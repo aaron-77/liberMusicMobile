@@ -25,7 +25,7 @@ public class PlaylistActivity extends AppCompatActivity {
         setContentView(R.layout.activity_playlist);
         listaReproduccion = (ArrayList<MediaItem>) getIntent().getSerializableExtra("lista");
         listaRep = findViewById(R.id.listaView);
-        listaRep
+        //agregar listaCanciones a listaRep
     }
 
 }

@@ -6,16 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.google.android.exoplayer2.MediaItem;
-
-import java.util.ArrayList;
-
-public class AlbumActivity extends AppCompatActivity {
+public class ArtistaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_album);
+        setContentView(R.layout.activity_artista);
+
+
+        //Crear ElementoReproducible para cada album y
+        //agregar elementos a espacioLista
+        //
+        //
     }
 
 
@@ -25,10 +27,9 @@ public class AlbumActivity extends AppCompatActivity {
         startActivity(regreso);
     }
 
-    public ArrayList<MediaItem> clicReproducir (View view)
+    public void clicReproducir (View view)
     {
          Intent reproduccion = new Intent(this, PlayerActivity.class);
         startActivity(reproduccion);
-        return null;
     }
 }
