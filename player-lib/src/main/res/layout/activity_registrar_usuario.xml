@@ -112,7 +112,7 @@
         app:strokeColor="#020202" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/botonRegistroUsuario"
+        android:id="@+id/botonRegresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="476dp"
