@@ -1,18 +1,13 @@
 package com.example.exoplayer;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,8 +17,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.MalformedURLException;
@@ -59,8 +52,8 @@ public class BuscadorActivity extends AppCompatActivity {
 
 
     private void insertarLista(Context contexto,ArrayList respuesta) {
-        ListView lista = (ListView) findViewById(R.id.list_results_search);
-        lista.setAdapter(new AdaptadorListaBuscador(contexto, R.id.layout_list_results, respuesta));
+        ListView lista = (ListView) findViewById(R.id.listview_resultados_listas);
+        lista.setAdapter(new AdaptadorListaBuscador(contexto, R.id.layout_listas_results, respuesta));
     }
 
     private void crearPeticion(){

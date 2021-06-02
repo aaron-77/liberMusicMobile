@@ -60,9 +60,9 @@ public class HomeActivity extends AppCompatActivity {
         });
         items = new ArrayList<Cancion>();
         queque = ManagerRequest.getInstance(this);
-        ListView lista = (ListView) findViewById(R.id.list_results_search);
+        ListView lista = (ListView) findViewById(R.id.listview_resultados_listas);
         Cancion.explorarCanciones(queque,items,this);
-        adaptadorListaExplorarCanciones = new AdaptadorListaBuscador(this, R.id.layout_list_results, items);
+        adaptadorListaExplorarCanciones = new AdaptadorListaBuscador(this, R.id.layout_listas_results, items);
         lista.setAdapter(adaptadorListaExplorarCanciones);
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

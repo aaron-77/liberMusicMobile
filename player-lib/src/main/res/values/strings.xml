@@ -39,6 +39,7 @@ limitations under the License. -->
     <string name="texto_item_administrar_contenido">administracion de tu cuenta</string>
     <string name="texto_item_cerrar_sesion">cerrar sesion</string>
     <string name="regresar">Regresar</string>
+    <string name="text_titulo_playlists">tus playlists</string>
 
 
 </resources>

@@ -10,7 +10,7 @@
     tools:context=".HomeActivity"
     >
     <LinearLayout
-        android:id="@+id/layout_list_results"
+        android:id="@+id/layout_listas_results"
         android:layout_width="410dp"
         android:layout_height="545dp"
         android:background="#3F5AED"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ListView
-            android:id="@+id/list_results_search"
+            android:id="@+id/listview_resultados_listas"
             android:layout_width="424dp"
             android:layout_height="match_parent"
             android:background="@drawable/backgroud_primary" />
