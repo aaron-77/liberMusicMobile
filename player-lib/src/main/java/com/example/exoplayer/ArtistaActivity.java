@@ -11,7 +11,7 @@ public class ArtistaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_artista);
+        setContentView(R.layout.activity_playlist);
 
 
         //Crear ElementoReproducible para cada album y

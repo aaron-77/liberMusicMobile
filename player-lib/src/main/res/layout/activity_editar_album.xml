@@ -1,121 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
-    tools:context=".EditarAlbumActivity">
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="14dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="900dp"
+        tools:context=".EditarAlbumActivity">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="104dp"
+            android:text="Regresar"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="< Regresar" />
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Elegir imagen del dispositivo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.576"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:srcCompat="@tools:sample/avatars" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nombreReal"
+            android:layout_width="213dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="432dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginRight="100dp"
+            android:ems="10"
+            android:hint="numero de tracks"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center">
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="116dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="eliminar album"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cambiar portada:" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="214dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="276dp"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="nombre album"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/button7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Elegir imagen del dispositivo" />
-            </LinearLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextNumber2"
+            android:layout_width="212dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="328dp"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
+            android:ems="10"
+            android:hint="fecha de lanzamiento"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nombre album" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_compania_productora"
+            android:layout_width="211dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="492dp"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="disquera"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/editTextTextPersonName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Nombre Album" />
-            </LinearLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_duracion"
+            android:layout_width="209dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="380dp"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="duracion"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="139dp"
+            android:layout_height="106dp"
+            android:layout_marginStart="144dp"
+            android:layout_marginLeft="144dp"
+            android:layout_marginTop="96dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Fecha lanzamiento" />
+        <TextView
+            android:id="@+id/textTipoAlbum"
+            android:layout_width="61dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="544dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginRight="28dp"
+            android:layout_weight="1"
+            android:text="tipo album"
+            app:layout_constraintEnd_toStartOf="@+id/edit_tipo_album"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/editTextDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="date" />
+        <Spinner
+            android:id="@+id/edit_tipo_album"
+            android:layout_width="204dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="552dp"
+            android:layout_marginEnd="108dp"
+            android:layout_marginRight="108dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="116dp"
+            android:layout_marginRight="116dp"
+            android:text="canciones"
+            app:layout_constraintEnd_toStartOf="@+id/botonCanciones"
+            app:layout_constraintTop_toBottomOf="@+id/textTipoAlbum" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+        <ImageView
+            android:id="@+id/textBorrarAlbum"
+            android:layout_width="41dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginRight="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            app:srcCompat="@drawable/ic_baseline_delete_24" />
 
-                <LinearLayout
-                    android:layout_width="300dp"
-                    android:layout_height="80dp"
-                    android:orientation="horizontal"
-                    android:gravity="center">
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginBottom="16dp"
+            app:backgroundTint="#FF000000"
+            app:itemIconTint="#FFFFFF"
+            app:itemTextColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@layout/barra_menu_inferior"
+            tools:layout_editor_absoluteX="0dp">
 
-                    <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@android:drawable/ic_menu_upload" />
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-                    <TextView
-                        android:id="@+id/textView8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Agregar canción..." />
-                </LinearLayout>
+        <ImageView
+            android:id="@+id/botonCanciones"
+            android:layout_width="50dp"
+            android:layout_height="43dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_tipo_album"
+            app:srcCompat="@drawable/ic_baseline_library_music_24" />
 
-            </LinearLayout>
+        <TextView
+            android:id="@+id/textRegistrarAlbum"
+            android:layout_width="169dp"
+            android:layout_height="27dp"
+            android:text="Registrar Album"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

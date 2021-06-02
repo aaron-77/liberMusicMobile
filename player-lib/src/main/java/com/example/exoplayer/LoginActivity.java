@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        MaterialButton botonLogin = findViewById(R.id.button);
+        MaterialButton botonLogin = findViewById(R.id.botonSubirArchivo);
         EditText useredit = (EditText) findViewById(R.id.user_edit);
         EditText passTextfield = (EditText) findViewById(R.id.password_edit);
         String user = useredit.getText().toString();
