@@ -12,14 +12,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AlbumesArtistaActivity"></activity>
-        <activity android:name=".PlayListDetailActivity" />
-        <activity android:name=".RegistrarUsuario" />
-        <activity android:name=".RegistrarCancionActivity" />
-        <activity android:name=".EditarAlbumActivity" />
-        <activity android:name=".EditarArtistaActivity" />
-        <activity android:name=".PlaylistActivity" />
-        <activity android:name=".ArtistaActivity" />
+        <activity android:name=".CancionesAlbumActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
+        <activity android:name=".AlbumesArtistaActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity android:name=".PlayListDetailActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity android:name=".RegistrarUsuario" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity android:name=".RegistrarCancionActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity android:name=".EditarAlbumActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity android:name=".EditarArtistaActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity android:name=".PlaylistActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity android:name=".ArtistaActivity" android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
             android:name=".CuentaActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />

@@ -41,6 +41,8 @@ limitations under the License. -->
     <string name="regresar">Regresar</string>
     <string name="text_titulo_playlists">tus playlists</string>
     <string name="text_titulo_lista_albumes">tus albumes</string>
+    <string name="text_titulo_canciones_albumes">canciones de</string>
+    <string name="textoTituloCancionesAlbum">Canciones de</string>
 
 
 </resources>
