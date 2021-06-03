@@ -12,7 +12,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RegistrarUsuario"></activity>
+        <activity android:name=".AlbumesArtistaActivity"></activity>
+        <activity android:name=".PlayListDetailActivity" />
+        <activity android:name=".RegistrarUsuario" />
         <activity android:name=".RegistrarCancionActivity" />
         <activity android:name=".EditarAlbumActivity" />
         <activity android:name=".EditarArtistaActivity" />

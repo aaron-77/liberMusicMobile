@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 public class ListaDeReproduccion implements Serializable {
     private String idLista;
-    private String nombreista;
+    private String nombreLista;
     private ArrayList<Cancion> cancionesPlaylist;
 
     public ListaDeReproduccion() {
         this.idLista = "vacio";
-        this.nombreista = "vacio";
+        this.nombreLista = "vacio";
         this.cancionesPlaylist = new ArrayList<Cancion>();
     }
 
@@ -22,12 +22,12 @@ public class ListaDeReproduccion implements Serializable {
         this.idLista = idLista;
     }
 
-    public String getNombreista() {
-        return nombreista;
+    public String getNombreLista() {
+        return nombreLista;
     }
 
-    public void setNombreista(String nombreista) {
-        this.nombreista = nombreista;
+    public void setNombreLista(String nombreLista) {
+        this.nombreLista = nombreLista;
     }
 
     public ArrayList<Cancion> getCancionesPlaylist() {
