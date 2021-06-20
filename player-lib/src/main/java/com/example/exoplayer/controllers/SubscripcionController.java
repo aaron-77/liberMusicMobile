@@ -1,12 +1,7 @@
-package com.example.exoplayer;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.exoplayer.controllers;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -16,53 +11,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.exoplayer.controllers.LoginController;
-import com.google.android.material.button.MaterialButton;
-import com.google.gson.JsonObject;
+import com.example.exoplayer.LoginActivity;
+import com.example.exoplayer.R;
 
 import org.json.JSONObject;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
-public class LoginActivity extends AppCompatActivity {
+public class SubscripcionController {
 
-    Context contexto;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        MaterialButton botonLogin = findViewById(R.id.botonSubirArchivo);
-        EditText useredit = (EditText) findViewById(R.id.user_edit);
-        EditText passTextfield = (EditText) findViewById(R.id.password_edit);
-        String user = useredit.getText().toString();
-        String contrasena = passTextfield.getText().toString();
-         contexto = this;
-
-
-        botonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditText useredit = (EditText) findViewById(R.id.user_edit);
-                EditText passTextfield = (EditText) findViewById(R.id.password_edit);
-                LoginController loginController = new LoginController();
-                JsonObject body = new JsonObject();
-                body.addProperty("");
-                body.addProperty("");
-                body.entrySet("");
-                body.entrySet("");
-                body.addProperty("");
-
-
-                loginController.login(user,contrasena,contexto);
-               //crearPeticion(useredit.getText().toString(),passTextfield.getText().toString());
-
-            }
-        });
-    }
-    private void crearPeticion(String user,String pass){
+    private void crearPeticion(String user, String pass, Context contexto){
         URL urltype ;
         Uri urlBuilt;
         String urlBase = "http://192.168.100.2:8090/suscripcion/login";
@@ -85,11 +44,12 @@ public class LoginActivity extends AppCompatActivity {
 
                         @Override
                         public void onResponse(JSONObject response) {
-                            EditText useredit = (EditText) findViewById(R.id.user_edit);
+                            LoginActivity activity = (LoginActivity)contexto;
+                            EditText useredit = (EditText) activity.findViewById(R.id.user_edit);
                             try{
                                 String nombreDeUsuarioResponse = response.getString("nombreDeUsuario");
                                 if(nombreDeUsuarioResponse.equals(useredit.getText().toString())){
-                                    abrirActivity();
+                                    //abrirActivity();
                                 }
                             }catch(Exception ex){
 
@@ -111,12 +71,4 @@ public class LoginActivity extends AppCompatActivity {
             String paraenlinea="";
         }
     }
-
-    public void abrirActivity() {
-        Intent intent = new Intent(this, HomeActivity.class);
-        String message = "Bingo";
-        startActivity(intent);
-    }
-
-
 }
