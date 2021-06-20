@@ -1,17 +1,13 @@
 package com.example.exoplayer;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,8 +17,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.MalformedURLException;
@@ -31,6 +25,7 @@ import java.util.ArrayList;
 
 public class BuscadorActivity extends AppCompatActivity {
 
+    //tercer comentario de prueba para lint 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
@@ -53,30 +48,12 @@ public class BuscadorActivity extends AppCompatActivity {
         textView.setText(message);
         //insertarLista(this);
         crearPeticion();
-
-        /*
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
-
-         */
-    }
-/*
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_buscador, container, false);
     }
 
- */
 
-    private void insertarLista(Context contexto,JSONObject respuesta) {
-        ListView lista = (ListView) findViewById(R.id.list_results_search);
-        lista.setAdapter(new AdaptadorListaBuscador(contexto, R.id.layout_list_results, respuesta));
+    private void insertarLista(Context contexto,ArrayList respuesta) {
+        ListView lista = (ListView) findViewById(R.id.listview_resultados_listas);
+        lista.setAdapter(new AdaptadorListaBuscador(contexto, R.id.layout_listas_results, respuesta));
     }
 
     private void crearPeticion(){
@@ -103,7 +80,7 @@ public class BuscadorActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                            insertarLista(contexto,response);
+                            insertarLista(contexto,new ArrayList());
                     }
                 }, new Response.ErrorListener() {
 
@@ -113,7 +90,7 @@ public class BuscadorActivity extends AppCompatActivity {
                     }
                 });
 
-// Access the RequestQueue through your singleton class.
+
         queue.add(jsonObjectRequest);
     }
 }

@@ -13,7 +13,7 @@
         android:layout_height="118dp"
         android:background="#2B54BC"
         app:hintTextColor="#151515"
-        app:layout_constraintBottom_toTopOf="@+id/layout_list_results"
+        app:layout_constraintBottom_toTopOf="@+id/layout_listas_results"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
-        android:id="@+id/layout_list_results"
+        android:id="@+id/layout_listas_results"
         android:layout_width="410dp"
         android:layout_height="545dp"
         android:layout_marginBottom="40dp"
@@ -44,10 +44,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
         <ListView
-            android:id="@+id/list_results_search"
+            android:id="@+id/listview_resultados_listas"
             android:layout_width="424dp"
             android:layout_height="match_parent"
             android:background="@drawable/backgroud_primary" />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
